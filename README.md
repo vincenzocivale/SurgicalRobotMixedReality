@@ -5,6 +5,8 @@ Questo progetto ha come obiettivo la creazione di una simulazione di un robot ch
 ## Struttura del Progetto
 
 La struttura del progetto è organizzata come segue:
+
+'
 SurgicalRobotMixedReality/
 │
 ├── src/
@@ -22,3 +24,4 @@ SurgicalRobotMixedReality/
 │
 ├── README.md                     # Documentazione del progetto
 └── requirements.txt              # Dipendenze del progetto (librerie Python)
+'
