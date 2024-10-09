@@ -58,29 +58,16 @@ class InverseKinematicsNode:
             return
 
         # Load the kinematic chain from the URDF file
-        kinematic_chain = chain.Chain.from_urdf_file(self.urdf_file)
+        mask = [False, True, True, True, True, True, True]
+        kinematic_chain = chain.Chain.from_urdf_file(self.urdf_file, active_link_mask = mask)
 
         # Convert the target pose to a transformation matrix
         orientation = self.target_pose.orientation
         position = self.target_pose.position
 
-        # Create a rotation matrix from the quaternion
-        q = [orientation.x, orientation.y, orientation.z, orientation.w]
-        rotation_matrix = np.array([
-            [1 - 2 * (q[1] ** 2 + q[2] ** 2), 2 * (q[0] * q[1] - q[2] * q[3]), 2 * (q[0] * q[2] + q[1] * q[3]), 0],
-            [2 * (q[0] * q[1] + q[2] * q[3]), 1 - 2 * (q[0] ** 2 + q[2] ** 2), 2 * (q[1] * q[2] - q[0] * q[3]), 0],
-            [2 * (q[0] * q[2] - q[1] * q[3]), 2 * (q[1] * q[2] + q[0] * q[3]), 1 - 2 * (q[0] ** 2 + q[1] ** 2), 0],
-            [0, 0, 0, 1]
-        ])
-
-        # Create the transformation matrix
-        target_matrix = np.eye(4)
-        target_matrix[:3, :3] = rotation_matrix[:3, :3]
-        target_matrix[:3, 3] = [position.x, position.y, position.z]
-
         # Calculate the inverse kinematics
-        joint_values = kinematic_chain.inverse_kinematics(target_matrix)
-
+        joint_values = kinematic_chain.inverse_kinematics(target_position = position) # Orientation da provare
+        joint_values = joint_values[1:len(joint_values)] # Il primo valore è da escludere
         # Publish the joint values
         joint_values_msg = Float64MultiArray(data=joint_values)
         self.joint_pub.publish(joint_values_msg)
