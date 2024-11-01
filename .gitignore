@@ -1,0 +1,70 @@
+# Questo .gitignore si riferisce alla sottocartella UnityRobotSimulation
+
+# Directory di Unity che vuoi ignorare nella sottocartella UnityRobotSimulation
+/UnityRobotSimulation/[Ll]ibrary/
+/UnityRobotSimulation/[Tt]emp/
+/UnityRobotSimulation/[Oo]bj/
+/UnityRobotSimulation/[Bb]uild/
+/UnityRobotSimulation/[Bb]uilds/
+/UnityRobotSimulation/[Ll]ogs/
+/UnityRobotSimulation/[Uu]ser[Ss]ettings/
+
+# MemoryCaptures possono diventare molto grandi
+/UnityRobotSimulation/[Mm]emoryCaptures/
+
+# Recordings possono diventare molto grandi
+/UnityRobotSimulation/[Rr]ecordings/
+
+# Ignora il plugin di Unity per l'Asset Store (se non necessario)
+# /UnityRobotSimulation/[Aa]ssets/AssetStoreTools*
+
+# Plugin Rider autogenerato
+/UnityRobotSimulation/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Cache di Visual Studio
+.vs/
+
+# Cache di Gradle
+.gradle/
+
+# File di soluzione e progetto autogenerati da VS/MD/Consulo
+/UnityRobotSimulation/ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# File meta generati da Unity
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# File generato da Unity nei report di crash
+/UnityRobotSimulation/sysinfo.txt
+
+# Build
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# File generato da Crashlytics
+/UnityRobotSimulation/crashlytics-build.properties
+
+# Addressables impacchettati
+/UnityRobotSimulation/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Asset Android generati temporaneamente
+/UnityRobotSimulation/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/UnityRobotSimulation/[Aa]ssets/[Ss]treamingAssets/aa/*
