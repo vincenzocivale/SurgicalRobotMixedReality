@@ -55,23 +55,7 @@ public class TrajectoryJointSubscriber : MonoBehaviour
         ROSConnection.GetOrCreateInstance().Subscribe<JointTrajectoryMsg>(jointTopic, UpdateJointStates);
 
     }
-    /*    void Update()
-        {
-            if (updateJointStates)
-            {
-                UpdateTargetTransform();
-            }
-            updateJointStates = false;
-        }*/
-    /*
-        public void UpdateTargetTransform()
-        {
-            for (int i = 0; i < jointStates.Count; i++)
-            {
-                UrdfJoint currentJoint = urdfJoints[i];
-                currentJoint.UpdateJointState(jointStates[i]);
-            }
-        }*/
+
 
     public void UpdateJointStates(JointTrajectoryMsg jointTrajectory)
     {

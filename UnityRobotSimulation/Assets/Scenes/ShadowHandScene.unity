@@ -728,11 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootJointGO: {fileID: 0}
-  jointStates:
-  - 1
-  - 0.5
-  - 0.6
-  - 0.3
+  jointTopic: /joint_example
 --- !u!4 &106304866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6224e73a4ef0e8147b7f1433b3c0d7d7, type: 3}
@@ -3849,11 +3845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootJointGO: {fileID: 1631601417}
-  jointStates:
-  - 0.5
-  - 0.3
-  - 0.6
-  - 0.9
+  jointTopic: 
 --- !u!4 &682620439
 Transform:
   m_ObjectHideFlags: 0

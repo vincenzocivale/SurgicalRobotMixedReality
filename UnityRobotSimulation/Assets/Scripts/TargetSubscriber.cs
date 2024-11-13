@@ -1,6 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Std;
+using Unity.Robotics.UrdfImporter;
+using static Unity.Robotics.UrdfImporter.UrdfJoint;
 
 public class TargetSubscriber : MonoBehaviour
 {
@@ -24,14 +27,8 @@ public class TargetSubscriber : MonoBehaviour
 
 
     public void UpdateTargetTransform(Float64MultiArrayMsg jointTrajectory)
-    {
-        if (jointTrajectory.data.Length != 7)
-        {
-            Debug.LogError("Il messaggio ricevuto non contiene 7 elementi.");
-            return;
-        }
-
-        targetGO.transform.position = new Vector3((float)jointTrajectory.data[0], (float)jointTrajectory.data[1], (float)jointTrajectory.data[2]);
-        targetGO.transform.rotation = new Quaternion((float)jointTrajectory.data[3], (float)jointTrajectory.data[4], (float)jointTrajectory.data[5], (float)jointTrajectory.data[6]);
+    {      
+        targetGO.transform.position = new Vector3(-(float)jointTrajectory.data[1], (float)jointTrajectory.data[2], (float)jointTrajectory.data[0]);
+        UnityEngine.Debug.Log("Posizione aggiornata: "+ targetGO.transform.position);
     }
 }
