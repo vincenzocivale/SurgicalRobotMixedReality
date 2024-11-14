@@ -1,0 +1,18 @@
+controller_list:
+  - name: fake_arm_group_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - base_link__yaw_link
+      - yaw_link__pitch_front_link
+      - pitch_front_link__pitch_bottom_link
+      - pitch_bottom_link__pitch_end_link
+  - name: fake_end_effector_group_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - pitch_end_link__main_insertion_link
+      - main_insertion_link__tool_link
+initial:  # Define initial robot poses per group
+  - group: arm_group
+    pose: zero_pose
+  - group: end_effector_group
+    pose: end_effector_down

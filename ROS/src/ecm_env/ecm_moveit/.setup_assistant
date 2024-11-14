@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ecm_description
+    relative_path: urdf/ecm_robot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/robot.srdf
+  CONFIG:
+    author_name: FilippoGastaldiLapoGrappolini
+    author_email: unifi@unifi.it
+    generated_timestamp: 1727779521

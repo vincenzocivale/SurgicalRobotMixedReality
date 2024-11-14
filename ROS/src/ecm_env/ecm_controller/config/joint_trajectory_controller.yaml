@@ -1,0 +1,25 @@
+# CONTROLLER TO CONTROL ROBOT JOINTS
+
+arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: ['base_link__yaw_link', 'yaw_link__pitch_front_link', 'pitch_front_link__pitch_bottom_link']
+      
+trasl_end_effector_controller:
+  type: "position_controllers/JointPositionController"
+  joint: pitch_end_link__main_insertion_link   
+  
+rot_end_effector_controller:
+  type: "position_controllers/JointPositionController"
+  joint: main_insertion_link__tool_link 
+               
+rot2_end_effector_controller:
+  type: "position_controllers/JointPositionController"
+  joint: pitch_bottom_link__pitch_end_link             
+               
+# CONTROLLER TO CONTINUOSLY PUBLISH JOINT STATES/POSITIONS
+
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+  
+

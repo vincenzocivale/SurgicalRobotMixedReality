@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<robot name="robot">
+	<link name="world"/>
+	<link name="base_link">
+		<inertial>
+			<mass value="0.1"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="-0.0046 -0.0 0.0801" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/base_link.STL"/>
+			</geometry>
+			<material name="black1">
+				<color rgba="0.0 0.0 0.0 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/base_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="base_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>Gazebo/Black</material>
+	</gazebo>
+	<link name="main_insertion_link">
+		<inertial>
+			<mass value="0.331"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="-0.059 -0.0165 0.0008" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/main_insertion_link.STL"/>
+			</geometry>
+			<material name="black2">
+				<color rgba="0.0 0.0 0.0 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/main_insertion_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="main_insertion_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>Gazebo/Black</material>
+	</gazebo>
+	<link name="pitch_bottom_link">
+		<inertial>
+			<mass value="0.45899999999999996"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="0.1491 -0.0182 -0.0" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/pitch_bottom_link.STL"/>
+			</geometry>
+			<material name="silver3">
+				<color rgba="0.75 0.75 0.75 1"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/pitch_bottom_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="pitch_bottom_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>PR2/Grey3</material>
+	</gazebo>
+	<link name="pitch_end_link">
+		<inertial>
+			<mass value="2.132"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="0.0513 0.0048 0.0008" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/pitch_end_link.STL"/>
+			</geometry>
+			<material name="silver4">
+				<color rgba="0.75 0.75 0.75 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/pitch_end_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="pitch_end_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>PR2/Grey3</material>
+	</gazebo>
+	<link name="pitch_front_link">
+		<inertial>
+			<mass value="1.707"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="-0.0365 -0.1526 -0.0" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/pitch_front_link.STL"/>
+			</geometry>
+			<material name="silver5">
+				<color rgba="0.75 0.75 0.75 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/pitch_front_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="pitch_front_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>PR2/Grey3</material>
+	</gazebo>
+	<link name="tool_link">
+		<inertial>
+			<mass value="2.007"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="-0.0 -0.0008 -0.0723" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/tool_link.STL"/>
+			</geometry>
+			<material name="blue6">
+				<color rgba="0.0 0.0 1.0 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/tool_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="tool_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>Gazebo/Blue</material>
+	</gazebo>
+	<link name="yaw_link">
+		<inertial>
+			<mass value="6.5169999999999995"/>
+			<inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+			<origin xyz="0.0 -0.0161 0.1345" rpy="0 0 0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/yaw_link.STL"/>
+			</geometry>
+			<material name="silver7">
+				<color rgba="0.75 0.75 0.75 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ecm_controller/meshes/yaw_link.STL"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="yaw_link">
+		<selfCollide>true</selfCollide>
+		<gravity>true</gravity>
+		<material>PR2/Grey3</material>
+	</gazebo>
+	<joint name="base_joint" type="fixed">
+		<parent link="world"/>
+		<child link="base_link"/>
+		<origin xyz="0.0 0.0 1.5" rpy="0.0 0.0 0.0"/>
+	</joint>
+	<joint name="base_link__yaw_link" type="revolute">
+		<parent link="base_link"/>
+		<child link="yaw_link"/>
+		<origin xyz="-7.380001284085225e-06 -0.536900009262 0.0" rpy="1.5708 -0.0 3.1414"/>
+		<axis xyz="-0.0 -0.0 -1.0"/>
+		<limit lower="-1.595" upper="1.582" effort="1000" velocity="1"/>
+		<dynamics damping="2.0" friction="0.0"/>
+	</joint>
+	<transmission name="yaw_link_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="base_link__yaw_link">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="yaw_link_motor">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<joint name="yaw_link__pitch_front_link" type="revolute">
+		<parent link="yaw_link"/>
+		<child link="pitch_front_link"/>
+		<origin xyz="-1.461935631108524e-06 7.309678156097732e-07 0.19899999999328755" rpy="0.7853944901957182 -1.570791132098422 2.3561944901957177"/>
+		<axis xyz="-0.0 -0.0 1.0"/>
+		<limit lower="-0.784" upper="1.158" effort="1000" velocity="1"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+	<transmission name="pitch_front_link_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="yaw_link__pitch_front_link">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="pitch_front_link_motor">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<joint name="pitch_front_link__pitch_bottom_link" type="revolute">
+		<parent link="pitch_front_link"/>
+		<child link="pitch_bottom_link"/>
+		<origin xyz="-0.10299999816270256 -0.2867000018360581 0.000499325232215686" rpy="3.617441230323139e-22 3.6174429020454476e-22 1.7930753724679503e-27"/>
+		<axis xyz="0.0 0.0 1.0"/>
+		<limit lower="-1.158" upper="0.784" effort="1000" velocity="1"/>
+		<dynamics damping="0.3" friction="0.0"/>
+	</joint>
+	<transmission name="pitch_bottom_link_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="pitch_front_link__pitch_bottom_link">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="pitch_bottom_link_motor">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<joint name="pitch_bottom_link__pitch_end_link" type="revolute">
+		<parent link="pitch_bottom_link"/>
+		<child link="pitch_end_link"/>
+		<origin xyz="0.34009999779378264 -0.00019999779148682784 -0.0006012499916885905" rpy="-1.0330840927080905e-10 -2.7548780003591397e-08 0.007499999999949406"/>
+		<axis xyz="0.0 -0.0 1.0"/>
+		<limit lower="-0.784" upper="1.158" effort="1000" velocity="1"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+	<transmission name="pitch_end_link_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="pitch_bottom_link__pitch_end_link">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="pitch_end_link_motor">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<joint name="pitch_end_link__main_insertion_link" type="prismatic">
+		<parent link="pitch_end_link"/>
+		<child link="main_insertion_link"/>
+		<origin xyz="0.04116208071705335 -0.08521110962857309 9.953346214386372e-05" rpy="1.1019422388017521e-05 -3.728275679223979e-06 1.570792653589591"/>
+		<axis xyz="1.0 -0.0 -0.0"/>
+		<limit lower="0.0" upper="0.254" effort="1000" velocity="1"/>
+		<dynamics damping="5.0" friction="0.0"/>
+	</joint>
+	<transmission name="main_insertion_link_trans_velocity">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="pitch_end_link__main_insertion_link">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="main_insertion_link_motor_velocity">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>		
+	<joint name="main_insertion_link__tool_link" type="revolute">
+		<parent link="main_insertion_link"/>
+		<child link="tool_link"/>
+		<origin xyz="0.0010359395658425807 -0.061909506627982336 -0.00019954522228837757" rpy="-1.5707963267814042 3.6732051033300526e-06 1.5708"/>
+		<axis xyz="-0.0 -0.0 -1.0"/>
+		<limit lower="-1.553" upper="1.567" effort="1000" velocity="1"/>
+		<dynamics damping="0.2" friction="0.0"/>
+	</joint>
+	<transmission name="tool_link_trans_velocity">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="main_insertion_link__tool_link">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="tool_link_motor">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<gazebo>
+		<plugin name="control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/</robotNamespace>
+		</plugin>
+	</gazebo>
+</robot>
+
+

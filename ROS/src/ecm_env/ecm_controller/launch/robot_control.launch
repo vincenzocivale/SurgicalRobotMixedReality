@@ -1,0 +1,43 @@
+<launch>
+    <!-- Definizione degli argomenti -->
+    <arg name="arg_x" default="0.00" />
+    <arg name="arg_y" default="0.00" />
+    <arg name="arg_z" default="0.00" />
+    <arg name="arg_R" default="0.00" />
+    <arg name="arg_P" default="0.00" />
+    <arg name="arg_Y" default="0.00" />
+    <arg name="dev" default="/dev/input/js0"/>
+
+    <!-- Passo 1: Caricamento del file URDF e lancio di Gazebo -->
+    <param name="robot_description" textfile="$(find ecm_controller)/urdf/ecm_robot.urdf"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+    
+    <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model robot -J base_joint 0.0 -J base_link__yaw_link 0.0 -J main_insertion_link__tool_link 0.0 -J pitch_bottom_link__pitch_end_link 0.0 -J pitch_end_link__main_insertion_link 0.0 -J pitch_front_link__pitch_bottom_link 0.0 -J yaw_link__pitch_front_link 0.0"/>
+
+    <!-- Caricamento dei parametri dei controller e publisher dello stato del robot -->
+    <rosparam file="$(find ecm_controller)/config/joint_trajectory_controller.yaml" command="load"/>
+    <!--<rosparam file="$(find ecm_controller)/config/pid_gains_controller.yaml" command="load"/>-->
+    
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller arm_controller trasl_end_effector_controller rot_end_effector_controller rot2_end_effector_controller"/>
+    
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+
+    <!-- Passo 2: Lancio del nodo Joy per il joystick -->
+    <node pkg="joy" type="joy_node" name="joy">
+        <param name="dev" value="$(arg dev)" />
+        <param name="deadzone" value="0.2" />
+        <param name="autorepeat_rate" value="40" />
+        <param name="coalesce_interval" value="0.025" />
+    </node>
+
+    <!-- Nodo Python per il controllo del joystick -->
+    <node pkg="ecm_controller" type="joystick.py" output="screen" name="joystick_node"/>
+
+    <!-- Passo 3: Lancio del nodo per il file inverse_kinematics.py -->
+    <node pkg="ecm_controller" type="inverse_kinematics.py" output="screen" name="inverse_kinematics_node" />
+    
+</launch>
+

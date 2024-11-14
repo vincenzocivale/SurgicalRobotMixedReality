@@ -1,0 +1,17 @@
+controller_list:
+  - name: ecm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - base_link__yaw_link
+      - yaw_link__pitch_front_link
+      - pitch_front_link__pitch_bottom_link
+      - pitch_bottom_link__pitch_end_link
+  - name: end_effector_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - pitch_end_link__main_insertion_link
+      - main_insertion_link__tool_link

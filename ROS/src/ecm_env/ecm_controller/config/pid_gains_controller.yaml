@@ -1,0 +1,27 @@
+ gazebo_ros_control:
+  pid_gains:
+    base_link__yaw_link:
+      p: 50.0
+      i: 0.1
+      d: 5.0
+    yaw_link__pitch_front_link:
+      p: 50.0
+      i: 0.1
+      d: 5.0
+    pitch_front_link__pitch_bottom_link:
+      p: 50.0
+      i: 0.1
+      d: 5.0
+    pitch_bottom_link__pitch_end_link:
+      p: 50.0
+      i: 0.1
+      d: 5.0
+    pitch_end_link__main_insertion_link:
+      p: 50.0
+      i: 0.1
+      d: 5.0
+    main_insertion_link__tool_link:
+      p: 50.0
+      i: 0.1
+      d: 5.0
+
