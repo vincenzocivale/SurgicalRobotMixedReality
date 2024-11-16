@@ -57,7 +57,7 @@
    mkdir -p ~/catkin_ws/src
    cd ~/catkin_ws/
    sudo apt update
-   sudo apt install build-essential -y
+   sudo apt install build-essential python-is-python3 -y
    catkin_make
    ```
 
