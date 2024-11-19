@@ -1,0 +1,3 @@
+string patient_id
+shape_msgs/Mesh reconstructed_mesh
+geometry_msgs/Pose mesh_pose

@@ -3,7 +3,7 @@ using Unity.Robotics.ROSTCPConnector;
 using Unity.Robotics.UrdfImporter;
 using RosMessageTypes.Std;
 
-public class JointVelocityController : MonoBehaviour
+public class JointFloatController : MonoBehaviour
 {
     [Header("ROS Topic Settings")]
     [Tooltip("Nome del topic ROS da cui ricevere i messaggi di velocità")]
@@ -13,11 +13,7 @@ public class JointVelocityController : MonoBehaviour
     [Tooltip("Il GameObject che contiene il joint da controllare")]
     [SerializeField] private GameObject targetGO;
 
-    [Tooltip("Fattore di scala per la velocità")]
-    [SerializeField] private float scaleFactor = 0.01f;
-
     private UrdfJoint joint;  // Riferimento al joint URDF
-    private float currentSpeed = 0f;  // Velocità corrente ricevuta da ROS
 
     private void Start()
     {
@@ -29,7 +25,7 @@ public class JointVelocityController : MonoBehaviour
         }
 
         // Iscrizione al topic ROS
-        ROSConnection.GetOrCreateInstance().Subscribe<Float64Msg>(topicName, UpdateSpeedFromROS);
+        ROSConnection.GetOrCreateInstance().Subscribe<Float64Msg>(topicName, UpdateJointValue);
     }
 
     /// <summary>
@@ -64,18 +60,12 @@ public class JointVelocityController : MonoBehaviour
     /// Callback per aggiornare la velocità corrente ricevuta dal topic ROS.
     /// </summary>
     /// <param name="message">Messaggio Float64 ricevuto da ROS</param>
-    private void UpdateSpeedFromROS(Float64Msg message)
+    private void UpdateJointValue(Float64Msg message)
     {
-        currentSpeed = (float)message.data;
-        ApplyJointMovement();
-    }
-
-    /// <summary>
-    /// Applica il movimento al joint in base alla velocità corrente e al fattore di scala.
-    /// </summary>
-    private void ApplyJointMovement()
-    {
-        float delta = currentSpeed * scaleFactor * Time.fixedDeltaTime;
+        float jointValue = (float)message.data;
+        float delta = jointValue - joint.GetPosition();
         joint.UpdateJointState(delta);
     }
+
+    
 }
