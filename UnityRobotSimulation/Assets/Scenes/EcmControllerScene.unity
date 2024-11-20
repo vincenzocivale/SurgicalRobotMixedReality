@@ -1891,8 +1891,8 @@ MonoBehaviour:
   selectedJoint: 
   selectedIndex: 0
   control: 0
-  stiffness: 0
-  damping: 0
+  stiffness: 500
+  damping: 100
   forceLimit: 1000
   speed: 10
   torque: 100
@@ -2344,12 +2344,12 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: -44.91989
     upperLimit: 66.34851
-    stiffness: 0
+    stiffness: 1500
     damping: 0
     forceLimit: 1000
     target: 0
     targetVelocity: 0
-    driveType: 0
+    driveType: 2
   m_YDrive:
     lowerLimit: 0
     upperLimit: 0
@@ -3506,11 +3506,11 @@ ArticulationBody:
     lowerLimit: -44.91989
     upperLimit: 66.34851
     stiffness: 0
-    damping: 0
+    damping: 50
     forceLimit: 1000
     target: 0
     targetVelocity: 0
-    driveType: 0
+    driveType: 2
   m_YDrive:
     lowerLimit: 0
     upperLimit: 0
@@ -4346,12 +4346,12 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: -66.34851
     upperLimit: 44.91989
-    stiffness: 0
+    stiffness: 1500
     damping: 0
     forceLimit: 1000
     target: 0
     targetVelocity: 0
-    driveType: 0
+    driveType: 2
   m_YDrive:
     lowerLimit: 0
     upperLimit: 0
@@ -4976,12 +4976,12 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: -91.38677
     upperLimit: 90.64192
-    stiffness: 0
+    stiffness: 1500
     damping: 0
     forceLimit: 1000
     target: 0
     targetVelocity: 0
-    driveType: 0
+    driveType: 2
   m_YDrive:
     lowerLimit: 0
     upperLimit: 0
@@ -6763,12 +6763,12 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: -88.98035
     upperLimit: 89.782486
-    stiffness: 0
-    damping: 0
+    stiffness: 5000
+    damping: 50
     forceLimit: 1000
     target: 0
     targetVelocity: 0
-    driveType: 0
+    driveType: 3
   m_YDrive:
     lowerLimit: 0
     upperLimit: 0
@@ -8080,12 +8080,12 @@ ArticulationBody:
   m_XDrive:
     lowerLimit: 0
     upperLimit: 0.254
-    stiffness: 0
-    damping: 0
+    stiffness: 5000
+    damping: 50
     forceLimit: 1000
     target: 0
     targetVelocity: 0
-    driveType: 0
+    driveType: 3
   m_YDrive:
     lowerLimit: 0
     upperLimit: 0

@@ -52,26 +52,33 @@ public class FloatArraySubscriber : MonoBehaviour
             childJointGO = FindChildJoint(childJointGO);
         }
 
+        UnityEngine.Debug.Log("urdfJoints.Count: " + urdfJoints.Count);
+
         ROSConnection.GetOrCreateInstance().Subscribe<Float64MultiArrayMsg>(jointTopic, UpdateJointStates);
 
     }
 
 
+
     public void UpdateJointStates(Float64MultiArrayMsg jointTrajectory)
     {
-        
-        var jointsValues = jointTrajectory.data;  // Prende le posizioni dal primo punto della traiettoria
-
-        for (int i = 0; i < urdfJoints.Count && i < jointsValues.Length; i++)
+        if (jointTrajectory.data.Length > 0)
         {
-            UrdfJoint currentJoint = urdfJoints[i];
-            float jointValue = (float)jointsValues[i];  // Prende la posizione del joint corrente
-            float delta = jointValue - currentJoint.GetPosition();
-            currentJoint.UpdateJointState(delta);
 
-            Debug.Log("Joint " + currentJoint.name + " set to position " + jointValue);
+            for (int i = 0; i < urdfJoints.Count && i < jointTrajectory.data.Length; i++)
+            {
+                UrdfJoint currentJoint = urdfJoints[i];
+                float jointValue = (float)jointTrajectory.data[i];  // Prende la posizione del joint corrente
+                float delta = jointValue - currentJoint.GetPosition();
+                currentJoint.UpdateJointState(delta);
+
+                Debug.Log("Joint " + currentJoint.name + " set to position " + jointValue);
+            }
         }
-        
+        else
+        {
+            Debug.LogWarning("Il messaggio JointTrajectory non contiene punti.");
+        }
     }
 
     public static GameObject FindChildJoint(GameObject parent)

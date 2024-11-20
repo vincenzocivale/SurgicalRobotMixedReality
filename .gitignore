@@ -68,3 +68,5 @@
 # Asset Android generati temporaneamente
 /UnityRobotSimulation/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /UnityRobotSimulation/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+/.vscode/
