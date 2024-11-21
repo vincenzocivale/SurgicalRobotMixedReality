@@ -120,9 +120,9 @@ class JoystickNode:
         
         # GESTIONE DELLE TRASLAZIONI ENTRO I LIMITI CONSENTITI DAL GIUNTO PRISMATICO      
         if data.axes[1] > 0:  # Se si sta spostando l'analogico sinistro verso l'alto...
-            self.end_effector_movement.data[0] = min(self.end_effector_movement.data[0] + 0.05, 0.25)  # Trasla verso il basso
+            self.end_effector_movement.data[0] = min(self.end_effector_movement.data[0] + 0.005, 0.25)  # Trasla verso il basso
         elif data.axes[1] < 0:  # Se si sta spostando l'analogico sinistro verso il basso...
-            self.end_effector_movement.data[0] = max(self.end_effector_movement.data[0] - 0.05, 0.0)  # Trasla verso l'alto
+            self.end_effector_movement.data[0] = max(self.end_effector_movement.data[0] - 0.005, 0.0)  # Trasla verso l'alto
                           
         # GESTIONE DELLE ROTAZIONI DEL TOOL INTORNO ALL'ASSE Z
         if data.buttons[6] == 1: # Se il pulsante L2 è premuto
