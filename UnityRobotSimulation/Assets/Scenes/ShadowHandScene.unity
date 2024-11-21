@@ -534,6 +534,9 @@ GameObject:
   - component: {fileID: 87653669}
   - component: {fileID: 87653670}
   - component: {fileID: 87653671}
+  - component: {fileID: 87653674}
+  - component: {fileID: 87653673}
+  - component: {fileID: 87653672}
   m_Layer: 0
   m_Name: ROSSubscriber
   m_TagString: Untagged
@@ -581,15 +584,67 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87653663}
-  m_Enabled: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac61603c2581b44085b72b27f91c255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topicName: /ff_joints_orientations
+  targetGameObjects:
+  - {fileID: 1502875653}
+  - {fileID: 775036628}
+  - {fileID: 298862592}
+  - {fileID: 701097606}
+--- !u!114 &87653672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87653663}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ac61603c2581b44085b72b27f91c255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topicName: 
+  targetGameObjects: []
+--- !u!114 &87653673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87653663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac61603c2581b44085b72b27f91c255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topicName: /mf_joints_orientations
   targetGameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1194880446}
+  - {fileID: 700288047}
+  - {fileID: 474902522}
+  - {fileID: 2125488493}
+--- !u!114 &87653674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87653663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac61603c2581b44085b72b27f91c255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topicName: /lf_joints_orientations
+  targetGameObjects:
+  - {fileID: 902217173}
+  - {fileID: 735436399}
+  - {fileID: 62940993}
+  - {fileID: 148234766}
 --- !u!1 &88428577
 GameObject:
   m_ObjectHideFlags: 0
