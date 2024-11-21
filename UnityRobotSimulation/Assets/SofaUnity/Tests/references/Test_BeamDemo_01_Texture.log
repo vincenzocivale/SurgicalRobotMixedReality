@@ -1,0 +1,11 @@
+NbrMeshes: 2
+Mesh: RestShapeSpringsForceField  -  RestSPForceField
+NbrVertices: 0
+NbrTriangles: 0
+Center: 0;0;0
+Min: 0;0;0
+Mesh: SofaBeamAdapterModel  -  InstrumentCombined@CollisionModel
+NbrVertices: 1190
+NbrTriangles: 2304
+Center: 0;0;0
+Min: 0;0;0

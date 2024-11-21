@@ -532,11 +532,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87653669}
-  - component: {fileID: 87653671}
   - component: {fileID: 87653670}
-  - component: {fileID: 87653674}
-  - component: {fileID: 87653673}
-  - component: {fileID: 87653672}
+  - component: {fileID: 87653671}
   m_Layer: 0
   m_Name: ROSSubscriber
   m_TagString: Untagged
@@ -568,11 +565,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 87653663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2e02e37fa8b644083f71e0c9a2edb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac61603c2581b44085b72b27f91c255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootJointGO: {fileID: 1876524007}
-  jointTopic: /lf_joints_orientations
+  topicName: /rf_joints_orientations
+  targetGameObjects:
+  - {fileID: 798922520}
+  - {fileID: 1021349437}
+  - {fileID: 862339290}
+  - {fileID: 2131101188}
 --- !u!114 &87653671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,55 +581,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87653663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2e02e37fa8b644083f71e0c9a2edb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac61603c2581b44085b72b27f91c255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootJointGO: {fileID: 2117326254}
-  jointTopic: /th_joints_orientations
---- !u!114 &87653672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87653663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2e02e37fa8b644083f71e0c9a2edb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootJointGO: {fileID: 1680980610}
-  jointTopic: /ff_joints_orientations
---- !u!114 &87653673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87653663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2e02e37fa8b644083f71e0c9a2edb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootJointGO: {fileID: 1631601417}
-  jointTopic: /mf_joints_orientations
---- !u!114 &87653674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87653663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2e02e37fa8b644083f71e0c9a2edb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootJointGO: {fileID: 1555313862}
-  jointTopic: /rf_joints_orientations
+  topicName: 
+  targetGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &88428577
 GameObject:
   m_ObjectHideFlags: 0
