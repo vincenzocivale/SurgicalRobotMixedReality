@@ -1,1 +1,0 @@
-ecm_controller/PatientMesh[] mesh_obstacles
