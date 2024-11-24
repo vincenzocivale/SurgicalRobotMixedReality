@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MIConvexHull</id>
+    <version>1.1.19.1019</version>
+    <authors>David Sehnal,Matt Campbell</authors>
+    <owners>David Sehnal,Matt Campbell</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/DesignEngrLab/MIConvexHull/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://designengrlab.github.io/MIConvexHull/</projectUrl>
+    <description>This project is a convex hull algorithm and library for 2D, 3D, and higher dimensions. The code can also be used to compute Delaunay triangulations and Voronoi meshes of the input data.</description>
+    <copyright>2019</copyright>
+    <repository type="git" url="https://github.com/DesignEngrLab/MIConvexHull.git" />
+    <dependencies>
+      <group targetFramework=".NETStandard1.0" />
+    </dependencies>
+  </metadata>
+</package>
