@@ -65,6 +65,8 @@ public class JointFloatController : MonoBehaviour
         float jointValue = (float)message.data;
         float delta = jointValue - joint.GetPosition();
         joint.UpdateJointState(delta);
+
+        UnityEngine.Debug.Log("Joint " + joint.name + " value updated to: " + jointValue);
     }
 
     

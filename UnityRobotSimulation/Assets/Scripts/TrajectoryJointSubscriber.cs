@@ -7,9 +7,17 @@ using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Trajectory;
 using System.Linq;
 
+public enum MotionType
+{
+    Positions,
+    Velocities
+}
+
+
 public class TrajectoryJointSubscriber : MonoBehaviour
 {
     public GameObject rootJointGO;
+    public MotionType motionType;
     /*public List<float> jointStates;*/
     [SerializeField]
     private string jointTopic;
@@ -61,18 +69,38 @@ public class TrajectoryJointSubscriber : MonoBehaviour
     {
         if (jointTrajectory.points.Length > 0)
         {
-            var positions = jointTrajectory.points[0].positions;  // Prende le posizioni dal primo punto della traiettoria
-
-            for (int i = 0; i < urdfJoints.Count && i < positions.Length; i++)
+            if (motionType == MotionType.Positions)
             {
-                UrdfJoint currentJoint = urdfJoints[i];
-                float jointValue = (float)positions[i];  // Prende la posizione del joint corrente
-                float delta = jointValue - currentJoint.GetPosition();
-                currentJoint.UpdateJointState(delta);
+                var positions = jointTrajectory.points[0].positions;  // Prende le posizioni dal primo punto della traiettoria
 
-                Debug.Log("Joint " + currentJoint.name + " set to position " + jointValue);
+                for (int i = 0; i < urdfJoints.Count && i < positions.Length; i++)
+                {
+                    UrdfJoint currentJoint = urdfJoints[i];
+                    float jointValue = (float)positions[i];  // Prende la posizione del joint corrente
+                    float delta = jointValue - currentJoint.GetPosition();
+                    currentJoint.UpdateJointState(delta);
+
+                    Debug.Log("Joint " + currentJoint.name + " set to position " + jointValue);
+                }
             }
+            else if (motionType == MotionType.Velocities)
+            {
+                var velocities = jointTrajectory.points[0].velocities;  // Prende le velocità dal primo punto della traiettoria
+
+                for (int i = 0; i < urdfJoints.Count && i < velocities.Length; i++)
+                {
+                    UrdfJoint currentJoint = urdfJoints[i];
+                    float jointValue = (float)velocities[i];  // Prende la velocità del joint corrente
+                    float delta = jointValue - currentJoint.GetVelocity();
+                    currentJoint.UpdateJointState(delta);
+
+                    Debug.Log("Joint " + currentJoint.name + " set to velocity " + jointValue);
+                }
+            }
+            
         }
+
+            
         else
         {
             Debug.LogWarning("Il messaggio JointTrajectory non contiene punti.");
