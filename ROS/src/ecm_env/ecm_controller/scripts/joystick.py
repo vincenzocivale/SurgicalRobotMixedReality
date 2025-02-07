@@ -120,27 +120,21 @@ class JoystickNode:
         
         # GESTIONE DELLE TRASLAZIONI ENTRO I LIMITI CONSENTITI DAL GIUNTO PRISMATICO      
         if data.axes[1] > 0:  # Se si sta spostando l'analogico sinistro verso l'alto...
-            self.end_effector_movement.data[0] = 0.5  # Trasla verso il basso
+            self.end_effector_movement.data[0] = min(self.end_effector_movement.data[0] + 0.005, 0.25)  # Trasla verso il basso
         elif data.axes[1] < 0:  # Se si sta spostando l'analogico sinistro verso il basso...
-            self.end_effector_movement.data[0] = -0.5
-        else:
-            self.end_effector_movement.data[0] = 0
-                          
+            self.end_effector_movement.data[0] = max(self.end_effector_movement.data[0] - 0.005, 0.0)
+                         
         # GESTIONE DELLE ROTAZIONI DEL TOOL INTORNO ALL'ASSE Z
         if data.buttons[6] == 1: # Se il pulsante L2 è premuto
-            self.end_effector_movement.data[1] = -0.5 # Allora si ruota in senso antiorario l'end - effector
+            self.end_effector_movement.data[1] -= 0.05 # Allora si ruota in senso antiorario l'end - effector
         elif data.buttons[7] == 1: # Se il pulsante R2 è premuto
-            self.end_effector_movement.data[1] = 0.5 # Allora si ruota in senso orario l'end - effector
-        else:
-            self.end_effector_movement.data[1] = 0
+            self.end_effector_movement.data[1] += 0.05 # Allora si ruota in senso orario l'end - effector
             
         # GESTIONE DELLE ROTAZIONI DEL TOOL INOTRNO ALL'ASSE X
         if data.buttons[0] == 1: # Se il pulsante "Croce" è premuto
-            self.end_effector_movement.data[2] = -0.5 # Allora si ruota in senso antiorario l'end - effector
+            self.end_effector_movement.data[2] -= 0.01 # Allora si ruota in senso antiorario l'end - effector
         elif data.buttons[1] == 1: # Se il pulsante "Cerchio" è premuto
-            self.end_effector_movement.data[2] = 0.5 # Allora si ruota in senso orario l'end - effector
-        else:
-            self.end_effector_movement.data[2] = 0
+            self.end_effector_movement.data[2] += 0.01 # Allora si ruota in senso orario l'end - effector
               
         self.target_pose_pub.publish(self.end_effector_movement) # Viene pubblicata la posizione dell'end - effector sul topic del gruppo d'interesse (in questo caso end_effector_group)
         # NOTA: Si ricorda che l'end - effector viene controllato con la cinematica diretta; quindi, non si fornisce in input una posizione da raggiungere ma quanto roto-traslare..
