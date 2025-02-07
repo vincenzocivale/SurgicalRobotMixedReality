@@ -129,16 +129,28 @@ class Arm:
 class EndEffector(Arm): # La classe "EndEffector" estende la classe "Arm" per gestire il controllo dell'end-effector
     def __init__(self):
         super().__init__()
+        
+        self.end_effector_pub = rospy.Publisher('/end_effector_controller/command', JointTrajectory, queue_size = 50)
+        self.joint_names = ['pitch_bottom_link__pitch_end_link', 'pitch_end_link__main_insertion_link', 'main_insertion_link__tool_link']
+        self.joint_trajectory_msg = JointTrajectory()
+                
         self.vel_pub = rospy.Publisher('/trasl_end_effector_controller/command', Float64, queue_size = 50)
         self.rot_pub = rospy.Publisher('/rot_end_effector_controller/command', Float64, queue_size = 50)
         self.rot_pub2 = rospy.Publisher('/rot2_end_effector_controller/command', Float64, queue_size = 50)
-
+        
     def execute_end_effector_group(self): # Metodo necessario per pubblicare i comandi di traslazione e rotazione ricevuti
         global end_effector_translation, end_effector_rotation, end_effector_rotation2
+        
+        point = JointTrajectoryPoint()
+        point.positions = [end_effector_rotation2, end_effector_translation, end_effector_rotation]
+        self.joint_trajectory_msg.points = [point]
+        self.joint_trajectory_msg.joint_names = self.joint_names
+        self.end_effector_pub.publish(self.joint_trajectory_msg)
+        
         self.vel_pub.publish(end_effector_translation)
         self.rot_pub.publish(end_effector_rotation)
         self.rot_pub2.publish(end_effector_rotation2)
-
+        
 def main():
     global group
     rate = rospy.Rate(10)  
