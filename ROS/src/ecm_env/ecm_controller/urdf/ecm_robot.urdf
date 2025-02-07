@@ -260,10 +260,10 @@
 	<transmission name="pitch_end_link_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="pitch_bottom_link__pitch_end_link">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="pitch_end_link_motor">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -278,10 +278,10 @@
 	<transmission name="main_insertion_link_trans_velocity">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="pitch_end_link__main_insertion_link">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="main_insertion_link_motor_velocity">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>		
@@ -296,10 +296,10 @@
 	<transmission name="tool_link_trans_velocity">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="main_insertion_link__tool_link">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="tool_link_motor">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
