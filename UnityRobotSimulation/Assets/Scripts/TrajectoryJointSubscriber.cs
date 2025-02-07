@@ -76,7 +76,7 @@ public class TrajectoryJointSubscriber : MonoBehaviour
                 for (int i = 0; i < urdfJoints.Count && i < positions.Length; i++)
                 {
                     UrdfJoint currentJoint = urdfJoints[i];
-                    float jointValue = (float)positions[i];  // Prende la posizione del joint corrente
+                    float jointValue = (float)positions[i];  
                     float delta = jointValue - currentJoint.GetPosition();
                     currentJoint.UpdateJointState(delta);
 

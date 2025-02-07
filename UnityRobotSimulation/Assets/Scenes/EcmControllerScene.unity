@@ -6656,7 +6656,7 @@ ArticulationBody:
   m_ImplicitTensor: 0
   m_Immovable: 0
   m_UseGravity: 0
-  m_CollisionDetectionMode: 0
+  m_CollisionDetectionMode: 1
 --- !u!114 &1773724329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7857,7 +7857,7 @@ ArticulationBody:
   m_ImplicitTensor: 0
   m_Immovable: 0
   m_UseGravity: 0
-  m_CollisionDetectionMode: 0
+  m_CollisionDetectionMode: 1
 --- !u!114 &2042940092
 MonoBehaviour:
   m_ObjectHideFlags: 0
