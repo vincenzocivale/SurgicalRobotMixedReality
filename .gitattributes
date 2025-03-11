@@ -1,0 +1,2 @@
+UnityRobotSimulation/Assets/3DObjects/*.obj filter=lfs diff=lfs merge=lfs -text
+*.diff filter=lfs diff=lfs merge=lfs -text
