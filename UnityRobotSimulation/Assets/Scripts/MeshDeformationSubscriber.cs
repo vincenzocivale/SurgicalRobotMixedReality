@@ -11,6 +11,9 @@ public class MeshDeformationSubscriber : MonoBehaviour
     private Mesh mesh;
     private Vector3[] originalVertices;
 
+    private double lastTimestamp = 0.0; // Timestamp del messaggio precedente
+    private float fps = 0.0f; // Frame rate calcolat
+
     void Start()
     {
         // Sottoscrizione al topic ROS
@@ -35,6 +38,7 @@ public class MeshDeformationSubscriber : MonoBehaviour
         {
             Debug.LogError("GameObject con nome " + nodeName + " non trovato nella scena.");
         }
+
     }
 
     // Funzione di callback per il topic DeformationUpdate
@@ -60,7 +64,7 @@ public class MeshDeformationSubscriber : MonoBehaviour
             }
 
 
-        Vector3[] vertices = mesh.vertices;
+           Vector3[] vertices = mesh.vertices;
 
             // Aggiorna i vertici della mesh in base ai displacement
             for (int i = 0; i < deformationUpdate.vertex_ids.Length; i++)
@@ -70,7 +74,7 @@ public class MeshDeformationSubscriber : MonoBehaviour
                 {
                     // Applica il displacement
                     DisplacementMsg displacement = deformationUpdate.displacements[i];
-                    Vector3 displacementVector = new Vector3((float)displacement.dx, (float)displacement.dy, (float)displacement.dz);
+                    Vector3 displacementVector = new Vector3((float)displacement.dx, (float)displacement.dy, -(float)displacement.dz);
                     vertices[vertexId] += displacementVector;  // Modifica la posizione del vertice
                 }
             }
@@ -79,7 +83,34 @@ public class MeshDeformationSubscriber : MonoBehaviour
             mesh.vertices = vertices;
             mesh.RecalculateNormals();
             mesh.RecalculateBounds();
-      
+
+
+            if (lastTimestamp > 0)
+            {
+                double deltaTime = deformationUpdate.timestamp - lastTimestamp;
+                if (deltaTime > 0)
+                {
+                    fps = (float)(1.0 / deltaTime);
+                }
+                else
+                {
+                    Debug.LogError("Messaggio uguale");
+                }
+        }
+            lastTimestamp = deformationUpdate.timestamp;
+
     }
+
+    
+
+    void OnGUI()
+    {
+        // Mostra il frame rate nell'editor di Unity
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 20;
+        style.normal.textColor = Color.white;
+        GUI.Label(new Rect(10, 10, 300, 30), "ROS Mesh Update FPS: " + fps.ToString("F2"), style);
+    }
+
 
 }
